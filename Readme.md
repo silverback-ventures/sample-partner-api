@@ -2,6 +2,10 @@
 
 This is a sample app to interact with Daffy public API. The public API it's in BETA so all methods are subject to change.
 
+Check the BETA documentation here: https://pumped-yard-d69.notion.site/Public-API-6f76f6a682984dd99daca5f7fe892d07
+
+---
+
 ## How to run this sample:
 1. Update your .env file
 Enter your `CLIENT_ID`, `CLIENT_SECRET` and `ISSUER_HOST`.
@@ -20,5 +24,3 @@ The way partners make API requests to Daffy is via JWTs via OpenID. In order to 
   Authorization: client_id jwt_token
 ```
 For an example see the `routes/index.js axios.post` method.
-
-Check the BETA documentation here: https://pumped-yard-d69.notion.site/Public-API-6f76f6a682984dd99daca5f7fe892d07
