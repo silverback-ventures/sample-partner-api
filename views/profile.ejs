@@ -1,0 +1,40 @@
+<%- include('partials/header') -%>
+
+<div class="p-4">
+  <h1 class="text-4xl mb-4">Welcome <%= user.nickname %></h1>
+
+  <% if (user.picture) { %>
+    <img class="block w-120 h-120 rounded-full" src="<%= user.picture %>" />
+  <% } %>
+  
+  <p class="py-3">
+    This is the content of <code class="bg-gray-200">req.user</code>.<br>
+    <strong>Note:</strong> <code class="bg-gray-200">_raw</code> and <code class="bg-gray-200">_json</code> properties have been omitted.
+  </p>
+
+  <pre class="block bg-gray-300 p-4 text-sm overflow-scroll"><%= userProfile %></pre>
+
+  <div class="pt-10">
+    <h3 class="font-bold text-lg">Donate</h3>
+    <p class="text-sm">
+      Below you can make a request to the public API and create a donation on behalf of the currently signed in user.
+    </p>
+    <form method="post" action="/donate" class="pt-4">
+      <div class="flex items-start mb-6">
+        <p>
+          <label>Amount</label>
+          <input type="number" name="amount" value="20" class="m-2 p-1 border border-gray-300 rounded-md" />
+        </p>
+        <p>
+          <label>EIN / TAX-ID (no dashes):</label>
+          <input type="text" name="ein" value="460858543" class="m-2 p-1 border border-gray-300 rounded-md" />
+        </p>
+      </div>
+      <p>
+        <input type="submit" value="Donate" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" />
+      </p>
+    </form>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>
