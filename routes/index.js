@@ -37,4 +37,36 @@ router.post('/donate', requiresAuth(), function (req, res, next) {
   });
 })
 
+router.post('/donation-status', requiresAuth(), function (req, res, next) {
+  axios.get(`${process.env.DAFFY_API_URL}/public/api/v1/donations/${req.body.id}`, {
+    headers: {
+      'Authorization': `${process.env.CLIENT_ID} ${req.oidc.idToken}`,
+    }
+  })
+  .then(function (response) {
+    console.log("body", response.data)
+    res.json(response.data);
+  })
+  .catch(function (error) {
+    console.log("error", error);
+    res.json(error.message);
+  });
+})
+
+router.get('/daffy-profile', requiresAuth(), function (req, res, next) {
+  axios.get(`${process.env.DAFFY_API_URL}/public/api/v1/users/me`, {
+    headers: {
+      'Authorization': `${process.env.CLIENT_ID} ${req.oidc.idToken}`,
+    }
+  })
+  .then(function (response) {
+    console.log("body", response.data)
+    res.json(response.data);
+  })
+  .catch(function (error) {
+    console.log("error", error);
+    res.json(error.message);
+  });
+})
+
 module.exports = router;

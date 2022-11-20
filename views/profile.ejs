@@ -8,33 +8,49 @@
   <% } %>
   
   <p class="py-3">
-    This is the content of <code class="bg-gray-200">req.user</code>.<br>
+    <h2 class="font-bold text-xl">JWT contents:</h2>
+    These are the contents of <code class="bg-gray-200">req.user</code>. This is not the Daffy profile information, to fetch the Daffy profile, see the sample method below.
+  </p>
+
+  <p class="py-3">
     <strong>Note:</strong> <code class="bg-gray-200">_raw</code> and <code class="bg-gray-200">_json</code> properties have been omitted.
   </p>
 
   <pre class="block bg-gray-300 p-4 text-sm overflow-scroll"><%= userProfile %></pre>
 
-  <div class="pt-10">
-    <h3 class="font-bold text-lg">Donate</h3>
-    <p class="text-sm">
-      Below you can make a request to the public API and create a donation on behalf of the currently signed in user.
-    </p>
-    <form method="post" action="/donate" class="pt-4">
-      <div class="flex items-start mb-6">
-        <p>
-          <label>Amount</label>
-          <input type="number" name="amount" value="20" class="m-2 p-1 border border-gray-300 rounded-md" />
-        </p>
-        <p>
-          <label>EIN / TAX-ID (no dashes):</label>
-          <input type="text" name="ein" value="460858543" class="m-2 p-1 border border-gray-300 rounded-md" />
-        </p>
-      </div>
+  <h2 class="font-bold text-xl py-4">API Examples:</h2>
+
+  <h3 class="font-bold text-lg">Donate</h3>
+  <p class="text-sm">
+    Below you can make a request to the public API and create a donation on behalf of the currently signed in user.
+  </p>
+  <form method="post" action="/donate" class="pt-4">
       <p>
-        <input type="submit" value="Donate" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" />
+        <label>Amount:</label>
+        <input type="number" name="amount" value="20" class="m-2 p-1 border border-gray-300 rounded-md" />
       </p>
-    </form>
-  </div>
+      <p>
+        <label>EIN / TAX-ID:</label>
+        <input type="text" name="ein" value="460858543" class="m-2 p-1 border border-gray-300 rounded-md" /> (no dashes)
+      </p>
+    <input type="submit" value="Donate" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-2 inline-block" />
+  </form>
+
+  <hr class="my-6" />
+
+  <h3 class="font-bold text-lg">Profile</h3>
+  <a href="/daffy-profile" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-2 inline-block">Fetch the user's Daffy profile</a>
+
+  <hr class="my-6" />
+
+  <h3 class="font-bold text-lg">Donation Status</h3>
+  <form method="post" action="/donation-status" class="pt-4">
+    <p>
+      <label>Donation ID:</label>
+      <input type="number" name="id" value="2707" class="m-2 p-1 border border-gray-300 rounded-md" />
+    </p>
+    <input type="submit" value="Check Status" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-2 inline-block" />
+  </form>
 </div>
 
 <%- include('partials/footer') -%>
