@@ -2,7 +2,7 @@
 
 This is a sample app to interact with Daffy public API. The public API it's in BETA so all methods are subject to change.
 
-Check the BETA documentation here: https://pumped-yard-d69.notion.site/Public-API-6f76f6a682984dd99daca5f7fe892d07
+Check the BETA documentation here: https://daffy-docs.notion.site/Public-API-6f76f6a682984dd99daca5f7fe892d07
 
 ---
 
